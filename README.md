@@ -24,6 +24,10 @@ theme => style customization, styled component config.
 
 utils => utils used in the app.
 
+constants => App shared components
+
+hooks => Helper hooks
+
 ### Components
 Components are the main tiny part of pages.You can find unique Components.Every component has also its own styled.ts file.
 
