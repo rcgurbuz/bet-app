@@ -3,8 +3,11 @@
 import { BulletinWrapper, Table } from './styled';
 import Thead from './Thead';
 import TBody from './TBody';
+import useBets from '../../hooks/useBets';
 
-const Bulletin = ({ data }) => {
+const Bulletin = () => {
+	const data = useBets();
+
 	return (
 		<BulletinWrapper>
 			<Table>

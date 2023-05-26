@@ -1,15 +1,14 @@
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/prop-types */
-import { useContext } from 'react';
 import { TableItem, TableWrapper, TableHead, TableItemRatio } from './styled';
 import { FixedSizeList as List } from 'react-window';
-import { BasketContext } from '../../context/BasketContext';
 import { odds } from '../../utils/index';
+import useBasket from '../../hooks/useBasket';
 
 const TBody = ({ data }) => {
-	const { addAndRemoveBasket, basketItems } = useContext(BasketContext);
+	const { addAndRemoveBasket, basketItems } = useBasket();
 
-	const handleaddAndRemoveBasket = (ratioCode, item, ratio) => {
+	const handleAddAndRemoveBasket = (ratioCode, item, ratio) => {
 		addAndRemoveBasket(ratioCode, item, ratio);
 	};
 
@@ -54,17 +53,17 @@ const TBody = ({ data }) => {
 					<TableItemRatio>{item?.N}</TableItemRatio>
 					<TableItemRatio />
 					<TableItemRatio>{item?.OCG['1']?.MBS}</TableItemRatio>
-					<TableItemRatio isSelected={odds.odd1 === selectedRatioCode} onClick={() => handleaddAndRemoveBasket(odds.odd1, item, +r1?.O)}>
+					<TableItemRatio $isSelected={odds.odd1 === selectedRatioCode} onClick={() => handleAddAndRemoveBasket(odds.odd1, item, +r1?.O)}>
 						{r1?.O}
 					</TableItemRatio>
-					<TableItemRatio isSelected={odds.oddX === selectedRatioCode} onClick={() => handleaddAndRemoveBasket(odds.oddX, item, +rX?.O)}>
+					<TableItemRatio $isSelected={odds.oddX === selectedRatioCode} onClick={() => handleAddAndRemoveBasket(odds.oddX, item, +rX?.O)}>
 						{rX?.O}
 					</TableItemRatio>
 					<TableItemRatio />
-					<TableItemRatio isSelected={odds.oddAlt === selectedRatioCode} onClick={() => handleaddAndRemoveBasket(odds.oddAlt, item, +r25?.O)}>
+					<TableItemRatio $isSelected={odds.oddAlt === selectedRatioCode} onClick={() => handleAddAndRemoveBasket(odds.oddAlt, item, +r25?.O)}>
 						{r25?.O}
 					</TableItemRatio>
-					<TableItemRatio isSelected={odds.oddUst === selectedRatioCode} onClick={() => handleaddAndRemoveBasket(odds.oddUst, item, +r26?.O)}>
+					<TableItemRatio $isSelected={odds.oddUst === selectedRatioCode} onClick={() => handleAddAndRemoveBasket(odds.oddUst, item, +r26?.O)}>
 						{r26?.O}
 					</TableItemRatio>
 					<TableItemRatio />
@@ -72,13 +71,13 @@ const TBody = ({ data }) => {
 					<TableItemRatio />
 					<TableItemRatio />
 					<TableItemRatio />
-					<TableItemRatio isSelected={odds.odd1X === selectedRatioCode} onClick={() => handleaddAndRemoveBasket(odds.odd1X, item, +r1X?.O)}>
+					<TableItemRatio $isSelected={odds.odd1X === selectedRatioCode} onClick={() => handleAddAndRemoveBasket(odds.odd1X, item, +r1X?.O)}>
 						{r1X?.O}
 					</TableItemRatio>
-					<TableItemRatio isSelected={odds.odd12 === selectedRatioCode} onClick={() => handleaddAndRemoveBasket(odds.odd12, item, +r12?.O)}>
+					<TableItemRatio $isSelected={odds.odd12 === selectedRatioCode} onClick={() => handleAddAndRemoveBasket(odds.odd12, item, +r12?.O)}>
 						{r12?.O}
 					</TableItemRatio>
-					<TableItemRatio isSelected={odds.oddX2 === selectedRatioCode} onClick={() => handleaddAndRemoveBasket(odds.oddX2, item, +rX2?.O)}>
+					<TableItemRatio $isSelected={odds.oddX2 === selectedRatioCode} onClick={() => handleAddAndRemoveBasket(odds.oddX2, item, +rX2?.O)}>
 						{rX2?.O}
 					</TableItemRatio>
 					<TableItemRatio />

@@ -18,7 +18,7 @@ export const Table = Styled.div`
 export const TableWrapper = Styled.div` 
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: 4fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 4fr 2fr repeat(18, 1fr);
 `;
 
 export const TableHeadItem = Styled.div` 
@@ -43,8 +43,7 @@ export const TableItemRatio = Styled.div`
   cursor: pointer;
   font-size:12px;
   text-align:center;
-  background: ${({ isSelected }) => (isSelected ? '#fc0' : '')}
-
+  background: ${({ $isSelected }) => ($isSelected ? '#fc0' : '')}
 `;
 
 export const TableHead = Styled.div``;

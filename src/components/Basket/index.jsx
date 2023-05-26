@@ -1,10 +1,9 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { BasketWrapper, BasketItem, BasketTitleWrapper, TotalBasket, BasketTitle, BasketItemsWrapper } from './styled';
-import { BasketContext } from '../../context/BasketContext';
-import { useContext } from 'react';
+import useBasket from '../../hooks/useBasket';
 
 const Basket = () => {
-	const { basketItems, totalRatio } = useContext(BasketContext);
+	const { basketItems, totalRatio } = useBasket();
 
 	return (
 		<BasketWrapper>
@@ -22,7 +21,7 @@ const Basket = () => {
 				))}
 			</BasketItemsWrapper>
 
-			<TotalBasket> Toplam Tutar: {totalRatio?.toFixed(2)} </TotalBasket>
+			{basketItems?.length > 0 && <TotalBasket> Toplam Tutar: {totalRatio?.toFixed(2)} </TotalBasket>}
 		</BasketWrapper>
 	);
 };
