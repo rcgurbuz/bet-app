@@ -4,6 +4,7 @@ import { TableItem, TableWrapper, TableHead, TableItemRatio } from './styled';
 import { FixedSizeList as List } from 'react-window';
 import { odds } from '../../utils/index';
 import useBasket from '../../hooks/useBasket';
+import { titleArray } from '../../constants';
 
 const TBody = ({ data }) => {
 	const { addAndRemoveBasket, basketItems } = useBasket();
@@ -18,7 +19,6 @@ const TBody = ({ data }) => {
 
 		const r1 = item?.OCG['1']?.OC['0'];
 		const rX = item?.OCG['1']?.OC['1'];
-		const r2 = item?.OCG['1']?.OC['2'];
 		const r25 = item?.OCG['5']?.OC['25'];
 		const r26 = item?.OCG['5']?.OC['26'];
 		const r1X = item?.OCG['2']?.OC['3'];
@@ -29,24 +29,10 @@ const TBody = ({ data }) => {
 			<TableHead style={style}>
 				<TableWrapper>
 					<TableItem>{`${item?.D} ${item?.LN}`}</TableItem>
-					<TableItem>Yorumlar</TableItem>
-					<TableItem>{item?.OCG[item]?.MBS}</TableItem>
-					<TableItem>{r1?.N}</TableItem>
-					<TableItem>{rX?.N}</TableItem>
-					<TableItem>{r2?.N}</TableItem>
-					<TableItem>{r25?.N}</TableItem>
-					<TableItem>{r26?.N}</TableItem>
-					<TableItem>H1</TableItem>
-					<TableItem>1</TableItem>
-					<TableItem>x</TableItem>
-					<TableItem>2</TableItem>
-					<TableItem>H2</TableItem>
-					<TableItem>{r1X?.N}</TableItem>
-					<TableItem>{r12?.N}</TableItem>
-					<TableItem>{rX2?.N}</TableItem>
-					<TableItem>VAR</TableItem>
-					<TableItem>YOK</TableItem>
-					<TableItem>+99</TableItem>
+
+					{titleArray?.map(item => (
+						<TableItemRatio key={item?.value}>{item?.label}</TableItemRatio>
+					))}
 				</TableWrapper>
 
 				<TableWrapper>
